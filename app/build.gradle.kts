@@ -68,7 +68,12 @@ android {
 }
 
 dependencies {
-    implementation(platform("androidx.compose:compose-bom:2023.06.00"))
+    /*
+    Compose BOM is the recommended way to manage Compose library versions.
+    (BOM) lets you manage all of your Compose library versions by specifying only the BOM's version.
+    When using the BOM in your app, you don't need to add any version to the Compose library dependencies themselves. When you update the BOM version, all the libraries that you're using are automatically updated to their new versions.
+    */
+    implementation(platform("androidx.compose:compose-bom:2023.06.01"))
     implementation("androidx.activity:activity-compose:1.7.2")
     implementation("androidx.compose.material3:material3")
     implementation("androidx.compose.ui:ui")
@@ -77,6 +82,10 @@ dependencies {
     implementation("androidx.core:core-ktx:1.10.1")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.1")
     implementation("androidx.lifecycle:lifecycle-viewmodel-compose:2.6.1")
+
+    androidTestImplementation(platform("androidx.compose:compose-bom:2023.06.01"))
+    androidTestImplementation("androidx.compose.ui:ui-test-junit4")
+    testImplementation("junit:junit:4.13.2")
 
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     debugImplementation("androidx.compose.ui:ui-tooling")
